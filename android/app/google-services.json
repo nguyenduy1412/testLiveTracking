@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "282809163556",
+    "project_id": "duy1-f5314",
+    "storage_bucket": "duy1-f5314.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282809163556:android:f138625555a5f2321cddb1",
+        "android_client_info": {
+          "package_name": "com.ximiapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2W5vtOHdmYMOW2etu3BO9P4wzL7aU3z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
