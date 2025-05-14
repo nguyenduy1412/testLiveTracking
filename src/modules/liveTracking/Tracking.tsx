@@ -2,9 +2,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const Tracking = () => {
+  
   return (
     <View style={styles.container}>
-      <Text>Tracking</Text>
+      <Text>Tracking </Text>
     </View>
   )
 }

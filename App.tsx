@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
+import { Clipboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { Fonts, Icons } from './src/assets';
 import RootNavigation from './src/navigation/views/RootNavigation';
 import { SWRConfig, SWRConfiguration } from 'swr';
@@ -16,6 +16,7 @@ const configuration: SWRConfiguration = {
 };
 
 const App = (props: Props) => {
+  const [token,setToken]= useState('')
   useEffect(() => {
     // Yêu cầu quyền Android (API 33+)
     const requestPermission = async () => {
@@ -35,6 +36,7 @@ const App = (props: Props) => {
     const getToken = async () => {
       const token = await messaging().getToken();
       console.log('FCM Token:', token);
+      setToken(token)
       // gửi token này lên server để lưu vào database
     };
 
@@ -51,8 +53,17 @@ const App = (props: Props) => {
 
     // return unsubscribe;
   }, []);
-
-  return <Tracking />;
+  const copyToClipboard = () => {
+    Clipboard.setString(token);
+    Alert.alert('Đã sao chép!', 'Token đã được sao chép vào clipboard.');
+  };
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center',paddingHorizontal:10}}>
+      <TouchableOpacity onPress={copyToClipboard}>
+        <Text>{token}</Text>
+      </TouchableOpacity>
+    </View>
+  ) 
   // return (
   //   <SWRConfig value={configuration}>
   //     <RootNavigation />
